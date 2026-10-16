@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivek's Ad Revenue Hub</title>
+    <style>
+        :root {
+            --bg-color: #030508;
+            --panel-color: #090d16;
+            --text-color: #f8fafc;
+            --accent-color: #06b6d4;
+            --border-color: #1e293b;
+            --success-color: #10b981;
+            --ad-bg: #090d16;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        .container {
+            background-color: var(--panel-color);
+            padding: 24px;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(6, 182, 212, 0.15);
+            width: 100%;
+            max-width: 450px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        h2 {
+            color: var(--accent-color);
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+        .google-ad-slot {
+            background-color: var(--ad-bg);
+            border: 1px solid var(--border-color);
+            color: #64748b;
+            padding: 15px;
+            font-size: 0.85rem;
+            border-radius: 12px;
+            margin: 15px 0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .main-btn {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            border-radius: 14px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+        }
+        #status-box {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .spinner {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- ऊपर का AdSense विज्ञापन स्पेस -->
+        <div class="google-ad-slot">📊 [Google AdSense Top Banner]</div>
+
+        <h2>Ad Revenue Hub</h2>
+        <p style="font-size: 0.75rem; color: #64748b; margin-top:0;">क्रिएटर: विवेक | Direct Ad-Impression System</p>
+
+        <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 20px;">
+            नीचे दिए गए बटन पर क्लिक करके विज्ञापन देखें। जितनी बार आप विज्ञापन देखेंगे, आपके एडसेंस अकाउंट पर इम्प्रेशंस बढ़ेंगे और आपकी कमाई होगी।
+        </p>
+
+        <button class="main-btn" onclick="triggerAdView()">📺 विज्ञापन लोड करें और देखें</button>
+
+        <div id="status-box">सिस्टम तैयार है। विज्ञापन देखने के लिए ऊपर क्लिक करें!</div>
+
+        <!-- नीचे का AdSense विज्ञापन स्पेस -->
+        <div class="google-ad-slot" style="margin-bottom: 0;">📊 [Google AdSense Bottom Banner]</div>
+    </div>
+
+    <script>
+        const statusBox = document.getElementById('status-box');
+
+        function triggerAdView() {
+            statusBox.innerHTML = '<span class="spinner"></span>विज्ञापन लोड हो रहा है (Ad Impression काउंट हो रहा है)...';
+            setTimeout(() => {
+                statusBox.innerHTML = "💰 विज्ञापन सफलतापूर्वक देखा गया! आपका रेवेन्यू अपडेट हो गया है।";
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
